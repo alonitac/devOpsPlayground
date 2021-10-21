@@ -1,2 +1,2 @@
 touch "sample"
-echo "hi" > sample
+echo "hi Shadi" > sample
