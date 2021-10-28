@@ -3,7 +3,6 @@ if [test !-d ./configs ]; then
 else
   echo "The directory is already exist!"
 fi
-
 if [test !-f ./configs/config.json]; then
   touch configs/config.json
 else
