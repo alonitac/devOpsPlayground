@@ -1,13 +1,14 @@
-if [ test -d ./configs ]; then
+if [test !-d ./configs ]; then
   mkdir configs
 else
   echo "The directory is already exist!"
 fi
 
-
-if [test ! -f ./configs/config.json]; then
-  touch ./configs/config.json
-  cat./config.json >./configs/configs.json
+if [test !-f ./configs/config.json]; then
+  touch configs/config.json
 else
-  echo "configs.json is already exist in the directory!"
+  echo "The file is already exist!"
 fi
+
+ cat  config.json > ./configs/config.json
+
