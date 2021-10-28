@@ -1,17 +1,24 @@
 
-if  test ! -d ./configs;then
+function configJasonUpdate {
 
-  mkdir configs
+  if  test ! -d ./configs;then
 
-fi
+    mkdir configs
 
-if test -f ./configs/config.json;then
+  fi
 
-  echo "config.json is going to be overwritten"
+  if test -f ./configs/config.json;then
 
-fi
+    echo "config.json is going to be overwritten"
 
-cat ./config.json > ./configs/config.json
+  fi
+
+  cat ./config.json > ./configs/config.json
+
+}
+
+configJasonUpdate
+
 
 
 
