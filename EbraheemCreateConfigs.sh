@@ -14,4 +14,17 @@ function checkFile {
     cat config.json > ./config/config.json
   fi
 }
+//method 2
+function checkfile2 {
+  if test -f ./config/$1;then
+    echo "The file already exist"
+  else
+    checkFolder config
+    touch config2.json
+    cp config.json config2.json
+    mv config2.json config
+    mv config2.json config.json
+  fi
+}
+
 checkFile config.json
