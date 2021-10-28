@@ -10,12 +10,8 @@ function checkFile {
     echo "The file already exist"
   else
     checkFolder config
-    touch config2.json
-    cp config.json config2.json
-    mv config2.json config
-    cd ./config/
-    mv config2.json config.json
+    touch ./config/config.json
+    cat config.json > ./config/config.json
   fi
-
 }
 checkFile config.json
