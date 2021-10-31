@@ -1,13 +1,13 @@
 
 function configJasonUpdate {
 
-  if  test ! -d ./configs;then
+  if  [ ! -d ./configs ];then
 
     mkdir configs
 
   fi
 
-  if test -f ./configs/config.json;then
+  if [ -f ./configs/config.json ];then
 
     echo "config.json is going to be overwritten"
 
