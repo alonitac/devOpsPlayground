@@ -8,7 +8,7 @@ BACKUPTIME=`date +%b-%d-%y` #current date
 ./home/usr/path/elias_repos  #the folder that contains the files that we want to backup
 
 function compress {
-tar -cpzf /home/usr/path/backupdir $../home/usr/path/ #create the backup
+tar -cpzf /c/Users/edy/PycharmProjects/devOpsPlayground $../c/Users/edy/PycharmProjects/devOpsPlayground/repo_backup #create the backup
 
 echo "Backup Files  $(total_files ${url})"
 
