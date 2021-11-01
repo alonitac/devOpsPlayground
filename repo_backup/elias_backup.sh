@@ -1,18 +1,21 @@
 source ./utils.sh
-
+# commands used: 1 adding devopsPlayground to ubuntu by using command : git clone https://github.com/alonitac/devOpsPlayground
+#2 : compressing by: tar -czvf repo_backup.tar.gz ~/git_workspace/devOpsPlayground
 #!/bin/bash #the first line of the bash script
-BACKUPTIME=`date +%b-%d-%y` #current date
 
-./home/usr/path/backup-$BACKUPTIME.tar.gz #create a backup file using the current date in it's name of the backup file
-
-./home/usr/path/elias_repos  #the folder that contains the files that we want to backup
+#git clone  https://github.com/alonitac/devOpsPlayground #for does who don't have the repo inside their ubuntu
 
 function compress {
-tar -cpzf /c/Users/edy/PycharmProjects/devOpsPlayground $../c/Users/edy/PycharmProjects/devOpsPlayground/repo_backup #create the backup
+tar -czvf repo_backup.tar.gz ~/DevOpsplayGound
 
-echo "Backup Files  $(total_files ${url})"
+echo "Back up Files  $(total_files ${url})"
+echo "Backup Dic $(total_directories ${url})"
 
-echo "By $(whoami) at $(date)"
-
+  echo "By $(whoami) in Date $(date)"
 }
+ if [ -f "$1"/repo_backup.tar.gz ]; then
+    echo "single.tar.gz is gonna be overwritten"
+  else
+    echo "backup file have been created"
+  fi
 
