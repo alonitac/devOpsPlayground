@@ -1,6 +1,6 @@
 #1/bin/bash
 source ../utils.sh
-SLEEP_TIME=1
+SLEEP_TIME=2
 
 while [ $SLEEP_TIME -gt 0 ];do
 {
