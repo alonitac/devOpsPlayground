@@ -8,7 +8,10 @@ function total_files {
 function total_directories {
   find $1 -type d | wc -l
 }
-
-function http_request {
+function http_request
+{
   curl http://www.ifconfig.me
-}
+  }
+
+
+
