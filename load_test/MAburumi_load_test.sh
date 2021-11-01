@@ -1,8 +1,8 @@
 #1/bin/bash
 source ../utils.sh
-SLEEP_TIME=0.2
+SLEEP_TIME=1
 
-while [ 1 ];do
+while [ $SLEEP_TIME -gt 0 ];do
 {
   echo "Ip :  "
   http_request
