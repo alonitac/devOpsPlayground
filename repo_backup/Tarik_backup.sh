@@ -1,9 +1,6 @@
-# Note : given path should end with directory name, otherwise unexpected results such as(/ , ../ ).
-
 source  ../utils.sh # import/include helper functions .
 
 function backupRepos {
-
 
   if  [ ! -d  $1 ] || [ $# -le 0 ] ; then #check if the path is valid or if a path was given.
       echo 'no such path';
@@ -22,11 +19,10 @@ function backupRepos {
   # -e  option used to allow escape char interpretation in a string .
   # Note : "" was used instead of '' to evaluate variables in the string.
   echo 'Repos Info--------------------------------------------------------'
-  echo -e "total files:$(total_files)\ntotal dirictories:$(total_directories)\ndate:$(date)\ncurrent user:$(whoami)"
+  echo -e "total files:$(total_files)\ntotal directories:$(total_directories)\ndate:$(date)\ncurrent user:$(whoami)"
   echo '--------------------------------------------------------'
-
 }
-backupRepos $1 # global scope $1 refer to global arg.
+backupRepos $1 # call function , global scope $1 refer to global arg.
 
 
 
