@@ -1,6 +1,6 @@
 ## Linux Practice
 
-#### Bach syntax
+#### Bash syntax
 
 consider the following code:
 ```shell script
@@ -23,7 +23,7 @@ For each echo line, choose what would be printed to the standard output:
 
 
 #### Print the 4th file
-Write a program that prints the name of the 4th file in the directory that the program is running
+Write a program that prints the name of the 4th file in the directory that the program is running on
 
 ```shell script
 MY_FILES=$(ls)
@@ -38,7 +38,7 @@ done
 ```
 
 #### Find the mistake
-This program will not run due to syntax error. The correct output should be "Good!". Fix the "if" statement and make it run
+This program will not run due to a syntax error. The correct output should be "Good!". Fix the "if" statement and make it run
 ```shell script
 HELLO="hello"
 if [HELLO -eq ]"HELLO"; them
@@ -54,7 +54,7 @@ if [ $HELLO == "HELLO" ]; then
 fi
 ```
 
-#### Use the Super Use
+#### Use the Super User
 The following program should create a file called "my_file.txt". It fails due to permission issue.
 Add a single command to the program to make it run successfully
 ```shell script
