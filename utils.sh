@@ -11,7 +11,4 @@ function total_directories {
 function http_request
 {
   curl http://www.ifconfig.me
-  }
-
-
-
+}
