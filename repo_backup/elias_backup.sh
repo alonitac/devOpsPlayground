@@ -15,10 +15,10 @@ echo "Backup Dic $(total_directories ${url})"
 
   echo "By $(whoami) in Date $(date)"
 }
- if [ -d $directory 'repo_backup.tar.gz'/tmp; then
-    echo "back_repo.tar.gz exist"]
+
+if  [ -d 'repo_backup.tar.gz' /tmp ]; then
+    echo "back_repo.tar.gz exist"
   else
 mkdir repo_back_up
     echo "backup Directory have been created"
 fi
-
