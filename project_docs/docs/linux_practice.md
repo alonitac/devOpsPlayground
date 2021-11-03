@@ -81,3 +81,33 @@ while true; do
   sleep 5
 done
 ```
+
+
+#### Function arguments
+Write a function `add` that adds two integer numbers and prints the results to the screen
+For each one of the following, think what would be printed to the screen.
+```shell script
+add 1 2
+add "1" "2"
+add 1 "2"
+add
+add 1 2 3
+add 1
+```
+
+Solution
+```shell script
+function add {
+  echo $(($1+$2))
+}
+```
+
+Consider this code:
+```shell script
+add 1 2 
+
+function add {
+  echo $(($1+$2))
+}
+```
+What would happen when we use the function `add`the function `add` before it's declaration?
