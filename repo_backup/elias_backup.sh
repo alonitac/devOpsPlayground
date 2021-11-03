@@ -16,7 +16,7 @@ stat [ -f repo_backup.tar.gz ]
 
 if
 
-tar xvf repo_backup.tar.gz -C ./devOpsPlayground/repo_back/
+tar -xvf repo_backup.tar.gz -C ./devOpsPlayground/repo_back/
 
   [ -d 'repo_backup.tar.gz' ]; then
 
