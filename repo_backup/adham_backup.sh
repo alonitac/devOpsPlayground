@@ -5,10 +5,10 @@ if [ -d $HOME ]; then
   if [ -f $HOME/adbackup.tar ]; then
     echo "warning:this file is already exists and it will be overwritten"
     tar -cvf $HOME/adbackup.tar ./
-    total_files
-    total_directories
-    date
-    whoami
+    echo "total files: $(total_files)"
+    echo "total directories: $(total_directories)"
+    echo "date: $(date)"
+    echo "user: $(whoami)"
   fi
 else
   echo "this path doesnt exist"
