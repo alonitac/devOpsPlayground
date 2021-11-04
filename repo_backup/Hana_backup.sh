@@ -1,8 +1,8 @@
 source ./utils.sh
 if test -d $1; then
-  echo "the path exists"
+  echo "The path exists"
   if test -f $1/repo_backup.tar.gz;then
-    echo "warning:The file repo_backup.tar.gz is already exists and it will be overwritten"
+    echo "Warning:The file repo_backup.tar.gz is already exists and it will be overwritten"
     stat $1/repo_backup.tar.gz
   fi
     tar -czf $1/repo_backup.tar.gz .
@@ -15,6 +15,6 @@ if test -d $1; then
     echo "Whoami is: "
     whoami
 else
-  echo "this path doesnt exist"
+  echo "This path doesnt exist"
 
 fi
