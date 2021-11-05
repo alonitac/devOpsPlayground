@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../utils.sh
+source ./utils.sh
 
 function http_request {
   curl http://www.ifconfig.me
