@@ -32,7 +32,7 @@ BU_DIR="../../backUpTest"
 
 }
 
-
+jihadUpdate
 
 compressedBackup
 
