@@ -1,3 +1,6 @@
+# install by: pip install matplotlib
+import matplotlib.pyplot as plt
+
 
 def names_histogram(<According to line 21, write your argumetns here>):
     """
@@ -10,6 +13,12 @@ def names_histogram(<According to line 21, write your argumetns here>):
              Such that 'John' appears 4 times in the list
     """
     pass   # your code here
+
+
+def draw_first(hist, n=30):
+    names = [h[0] for h in hist[:n]]
+    freq = [h[1] for h in hist[:n]]
+    plt.bar(names, freq)
 
 
 if __name__ == '__main__':
