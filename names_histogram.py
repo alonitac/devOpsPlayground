@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 
 
-def names_histogram(<According to line 21, write your argumetns here>):
+def names_histogram(names, ignore=[]):
     """
     Calculates how frequent each name is
     Hint: use dictionary
@@ -12,13 +12,19 @@ def names_histogram(<According to line 21, write your argumetns here>):
     :return: List of tuples in the form ('John', 4)
              Such that 'John' appears 4 times in the list
     """
-    pass   # your code here
+    d = {
+        'Jordi': 5,
+        'John': 1,
+        'Ram': 2
+    }
+    return list(d.items())
 
 
 def draw_first_n(hist, n=30):
     names = [h[0] for h in hist[:n]]
     freq = [h[1] for h in hist[:n]]
     plt.bar(names, freq)
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -28,4 +34,5 @@ if __name__ == '__main__':
         names = [line.rstrip() for line in lines]
 
     hist = names_histogram(names, ignore=['Jordi', 'Ram'])
+    draw_first_n(hist)
     print('Done')
