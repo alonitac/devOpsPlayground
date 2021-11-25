@@ -15,7 +15,7 @@ def names_histogram(<According to line 21, write your argumetns here>):
     pass   # your code here
 
 
-def draw_first(hist, n=30):
+def draw_first_n(hist, n=30):
     names = [h[0] for h in hist[:n]]
     freq = [h[1] for h in hist[:n]]
     plt.bar(names, freq)
