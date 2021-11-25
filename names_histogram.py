@@ -1,5 +1,5 @@
 
-def names_histogram(.....):
+def names_histogram(<According to line 21, wrote you arguemtns here>):
     """
     Calculates how frequent each name is
     Hint: use dictionary
@@ -16,6 +16,7 @@ if __name__ == '__main__':
 
     with open('names.txt') as file:
         lines = file.readlines()
+        names = [line.rstrip() for line in lines]
 
-    hist = names_histogram([line.rstrip() for line in lines], ignore=['Jordi', 'Ram'])
+    hist = names_histogram(names, ignore=['Jordi', 'Ram'])
     print('Done')
