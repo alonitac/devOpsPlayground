@@ -12,12 +12,7 @@ def names_histogram(names, ignore=[]):
     :return: List of tuples in the form ('John', 4)
              Such that 'John' appears 4 times in the list
     """
-    d = {
-        'Jordi': 5,
-        'John': 1,
-        'Ram': 2
-    }
-    return list(d.items())
+    pass   # your code here
 
 
 def draw_first_n(hist, n=30):
