@@ -1,5 +1,5 @@
 
-def names_histogram(<According to line 21, write your arguemtns here>):
+def names_histogram(<According to line 21, write your argumetns here>):
     """
     Calculates how frequent each name is
     Hint: use dictionary
