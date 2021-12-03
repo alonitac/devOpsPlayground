@@ -1,4 +1,4 @@
-class Bank_Account:
+class BankAccount:
 
 	def __init__(self):
 		self.balance = 0
@@ -22,7 +22,7 @@ class Bank_Account:
 
 
 # creating an object of class
-s = Bank_Account()
+s = BankAccount()
 
 # functions and objects
 s.deposit()
