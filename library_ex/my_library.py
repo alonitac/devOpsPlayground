@@ -1,6 +1,10 @@
 import os
 
 
+class BookNotFound(Exception):
+    pass
+
+
 class Library:
     def __init__(self, books_dir):
         self.books_dir = books_dir
@@ -40,12 +44,17 @@ class Library:
                 #     if 'Title' in word:
                 #         return line[7:]
 
+                # Ebraheem
+                # p = line.split(':')
+                # if p[0] == 'Title':
+                #     return p[1]
+
                 # Elia
                 if line.startswith('Title:'):
                     return line[7:]
             return 'Bad book format'
         else:
-            return 'Book not found'
+            raise BookNotFound(f'The book {book_id} was not found in {self.books_dir}. Available book are {self.list_books()}')
 
     def get_author(self, book_id):
         """
@@ -56,4 +65,4 @@ class Library:
 
 
 lib = Library('books')
-print(lib.get_book_name('pg43453.txt'))
+print(lib.get_book_name('pggggg43453.txt'))
