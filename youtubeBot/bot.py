@@ -55,5 +55,5 @@ class YoutubeBot(Bot):
                 super().send_text('pick another index')
 
 if __name__ == '__main__':
-    myBot = YoutubeBot('5063304080:AAFbTMnB3758CT-VDoOuU1G9GUB1AFqxfPQ')
+    myBot = YoutubeBot()
 
