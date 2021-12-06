@@ -32,8 +32,28 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
 
+    def __init__(self, token):
+        self.ctr = 0
+        self.videos = []
+        super().__init__(token)
+
+    def message_handler(self, message):
+        if(self.ctr == 0):
+             super().send_text('Downloading ' + message)
+             self.videos = download_youtube_file(message, 2)
+             super().send_text(self.videos)
+             super().send_text('choose video index')
+             self.ctr += 1
+
+        else:
+            if(int(message) < len(self.videos)):
+                super().send_text('sending')
+                super().send_video(self.videos[int(message)])
+                self.ctr = 0
+            else:
+                super().send_text('pick another index')
 
 if __name__ == '__main__':
-    Bot('YOUR TOKEN HERE')
+    myBot = YoutubeBot('5063304080:AAFbTMnB3758CT-VDoOuU1G9GUB1AFqxfPQ')
+
