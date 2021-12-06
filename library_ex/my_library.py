@@ -3,7 +3,7 @@ import os
 
 class Library:
     def __init__(self, books_dir):
-        pass  # TODO
+        self.books_dir = books_dir
 
     def list_books(self):
         """
@@ -17,7 +17,7 @@ class Library:
         """
         Search a word in a book
         :param word: str. The word to search
-        :param book_id: Optional argument. the book id to search in
+        :param book_id: Optional argument, list. the book id to search in
         :return: print list of book id's in which the word exist
         """
         pass  # TODO
@@ -27,7 +27,25 @@ class Library:
         :param book_id:
         :return: The book title
         """
-        pass  # TODO
+        if book_id in self.list_books():
+            # book_file = open(book_id)
+            # book_lines = book_file.readlines()
+            for line in open(f'{self.books_dir}/{book_id}', mode='r'):
+                # Adham
+                # if line[:7] == 'Title: ':
+                #     return line[7:]
+
+                # Abeer
+                # for word in line.split():
+                #     if 'Title' in word:
+                #         return line[7:]
+
+                # Elia
+                if line.startswith('Title:'):
+                    return line[7:]
+            return 'Bad book format'
+        else:
+            return 'Book not found'
 
     def get_author(self, book_id):
         """
@@ -35,3 +53,7 @@ class Library:
         :return: The book author
         """
         pass  # TODO
+
+
+lib = Library('books')
+print(lib.get_book_name('pg43453.txt'))
