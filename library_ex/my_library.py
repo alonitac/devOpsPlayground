@@ -1,9 +1,9 @@
 import os
-
+import books
 
 class Library:
     def __init__(self, books_dir):
-        pass  # TODO
+        self.books_dir = books_dir
 
     def list_books(self):
         """
@@ -27,11 +27,28 @@ class Library:
         :param book_id:
         :return: The book title
         """
-        pass  # TODO
+        my_file = open(book_id)
+        file_lines = my_file.readlines()
+        for line in file_lines:
+            if line[:7] == 'Author:':
+                print(line[7:])
+
 
     def get_author(self, book_id):
         """
         :param book_id:
         :return: The book author
         """
-        pass  # TODO
+        my_file = open(book_id)
+        file_lines = my_file.readlines()
+        for line in file_lines:
+            if line[:7] == 'Author:':
+                print(line[7:])
+        my_file.close()
+
+lib = Library('books')
+lib.list_books()
+lib.get_author('books/1342-0.txt')
+
+
+

@@ -1,15 +1,20 @@
 class Dog:
     def __init__(self, dog_name, dog_x, dog_y):
-        pass
+        self.name = dog_name
+        self.x = dog_x
+        self.y = dog_y
 
     def walk(self, distance_x, distance_y):
-        pass
+        self.x += distance_x
+        self.y += distance_y
 
     def get_location(self):
-        pass
+        print(self.x,self.y)
 
     def say_your_name(self):
-        pass
+        # name_list = [word[0].upper() + word[1:] for word in self.name.split()]
+        # self.name = "".join(name_list)
+        print('My name is' , self.name[:1].upper() + self.name[1:])
 
 
 my_dog = Dog('sally', 0, 1)

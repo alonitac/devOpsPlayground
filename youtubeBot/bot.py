@@ -12,6 +12,7 @@ class Bot:
         print('Bot is running....')
         updater.idle()
 
+
     def _callback(self, update, context):
         """Internal method to handle received messages"""
         self.update = update
@@ -37,3 +38,7 @@ class YoutubeBot(Bot):
 
 if __name__ == '__main__':
     Bot('YOUR TOKEN HERE')
+
+if __name__ == '__main__':
+    Bot('YOUR TOKEN HERE')
+
