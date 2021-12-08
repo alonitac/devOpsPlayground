@@ -1,5 +1,7 @@
 from telegram.ext import Updater, MessageHandler, Filters
 from youtubeBot.utils import download_youtube_file
+from youtube_dl import YoutubeDL
+import os
 
 
 class Bot:
@@ -33,7 +35,40 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
+    def __init__(self, token, library):
+        self.library = library
+        updater = Updater(token, use_context=True)
+        self.update = None
+        self.context = None
+        updater.dispatcher.add_handler(MessageHandler(Filters.text, self._callback))
+        updater.start_polling()
+        print('Bot is running....')
+        updater.idle()
+
+    def list_files(self):
+        """
+        List book id's
+        :return:
+        """
+        files = os.listdir(self.library)
+        return files
+
+    def message_handler(self, message):
+        """Main messages handler"""
+        is_exist = False
+        for file in self.list_files():
+             if file.__contains__(message):
+                 self.send_text('you already downloaded this file')
+                 is_exist = True
+                 break
+        if is_exist == False:
+            downloaded_videos = download_youtube_file(message)
+            for file in self.list_files():
+                if file.__contains__(message):
+                    self.send_video(file)
+                    break
+
+
 
 
 if __name__ == '__main__':
