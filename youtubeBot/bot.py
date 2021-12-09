@@ -60,4 +60,6 @@ class YoutubeBot(Bot):
 
 
 if __name__ == '__main__':
-    mybot = YoutubeBot('5036858899:AAHPS5ljZ8wpy1eEL8Zh9BTZi8FwZQkvCX4')
+    my_token = open(".token").read()
+    print(my_token)
+    mybot = YoutubeBot(my_token)
