@@ -3,7 +3,6 @@ from youtubeBot.utils import download_youtube_file
 from youtube_dl import YoutubeDL
 import os
 
-
 class Bot:
     def __init__(self, token):
         updater = Updater(token, use_context=True)
