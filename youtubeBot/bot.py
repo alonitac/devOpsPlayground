@@ -71,6 +71,6 @@ class YoutubeBot(Bot):
 
 
 if __name__ == '__main__':
-    Bot('YOUR TOKEN HERE')
+    token = open('.token').read()
 
 
