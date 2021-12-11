@@ -1,3 +1,5 @@
+import os
+
 from telegram.ext import Updater, MessageHandler, Filters
 from youtubeBot.utils import download_youtube_file
 
@@ -32,8 +34,26 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
+    """dictionary to save the songs and their names"""
+    exist_video = {}
+
+    def __init__(self, token):
+        super().__init__(token)
+
+    def message_handler(self, message):
+        """check if the is song already been downloaded ,
+        if not add the song and the song name to the dict"""
+
+        if message in self.exist_video.keys():
+            super().send_text(message + ' is already exist')
+            super().send_video(self.exist_video[message])
+
+        else:
+            super().send_text(message + ' is downloading now, please wait  ')
+            song = download_youtube_file(message, 1)
+            self.exist_video[message] = song[0]
+            super().send_video(song[0])
 
 
 if __name__ == '__main__':
-    Bot('YOUR TOKEN HERE')
+    YoutubeBot('')
