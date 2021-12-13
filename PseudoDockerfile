@@ -1,0 +1,12 @@
+TelegramYoutubeBot:1.3
+-----------------------
+start from linux with complete python
+# install python 3.8
+install git
+pip install telegram ydl
+- copy files form hosted os into the container
+- git clone ......
+
+run: python youtubeBot/bot.py
+
+
