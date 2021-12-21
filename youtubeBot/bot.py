@@ -1,3 +1,4 @@
+
 from telegram.ext import Updater, MessageHandler, Filters
 from youtubeBot.utils import download_youtube_file
 
@@ -32,10 +33,17 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
-
-
-
+    requested_videos = {}
+    def message_handler(self, message):
+        "downloading the video"
+        if  YoutubeBot.requested_videos.__contains__(message):
+            print("downloading the requested video")
+            _videos=download_youtube_file()
+            YoutubeBot.requested_videos[message]=_videos
+        else:
+            print("the video is already downloaded, we will send the video in a seconds")
+            _videos=YoutubeBot.requested_videos[message]
+        self.send_video(_videos)
 
 if __name__ == '__main__':
-    Bot('YOUR TOKEN HERE')
+    YoutubeBot('')
