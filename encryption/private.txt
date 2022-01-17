@@ -1,0 +1,12 @@
+
+1. I would like to connect to you (you is the VM)
+
+2. The VM asks "how are you?"
+
+3. I say: I'm Alon
+
+4. VM say: prove it
+
+5. I encrypt the word "Alon" with my private key and send it to the VM
+
+6. The VM has my public key - he decrypts the message, if it's equal "Alon", he lets me in.

@@ -21,6 +21,13 @@ def draw_first_n(hist, n=30):
     plt.bar(names, freq)
     plt.show()
 
+"""
+
+10.0.0.0 - 10.0.0.255
+147.235.0.0 - 147.235.255.255
+
+"""
+
 
 if __name__ == '__main__':
 
