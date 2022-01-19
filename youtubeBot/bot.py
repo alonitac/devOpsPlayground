@@ -1,7 +1,6 @@
 from telegram.ext import Updater, MessageHandler, Filters
 from youtubeBot.utils import download_youtube_file
 
-
 class Bot:
     def __init__(self, token):
         updater = Updater(token, use_context=True)
@@ -32,7 +31,8 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
+    def message_handler(self, message):
+        self.send_text(download_youtube_file(message))
 
 
 
