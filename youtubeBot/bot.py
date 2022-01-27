@@ -32,9 +32,10 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
-
-
+    def message_handler(self, message):
+        downloaded_videos = download_youtube_file(message)
+        for video_path in downloaded_videos:
+            self.send_video(video_path)
 
 
 if __name__ == '__main__':
