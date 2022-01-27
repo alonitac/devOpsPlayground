@@ -1,16 +1,12 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
-
-"""
-ngnix1 (8080)       nginx2 (8081)
-private-nginx       private-nginx
-"""
 
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!, DNS is working</p>"
+    return "<p>Hello, World! " + os.environ['HOSTNAME'] + "</p>"
 
 
 @app.route("/<name>")
@@ -18,6 +14,5 @@ def hello(name):
     return f"Hello, {name}!"
 
 
-
-app.run(host='0.0.0.0', port=80)
+app.run(host='0.0.0.0', port=8080)
 
