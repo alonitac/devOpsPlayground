@@ -15,10 +15,11 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  # this ami according to product spec
+  ami           = "ami-0a8b4cd432b1c3063"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "TerraformEc2DemoAlonit"
   }
 }
