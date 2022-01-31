@@ -4,4 +4,4 @@
 # python
 venv
 */.terraform
-*/terraform.tfstate
+*/terraform.tfstate*
