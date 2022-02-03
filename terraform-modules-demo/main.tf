@@ -1,5 +1,3 @@
-# Terraform configuration
-
 terraform {
   required_providers {
     aws = {
@@ -32,7 +30,7 @@ module "ec2_instances" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "2.12.0"
 
-  name           = "my-ec2-cluster"
+  name           = "my-ec2-cluster-alonit"
   instance_count = 2
 
   ami                    = "ami-0c5204531f799e0c6"
