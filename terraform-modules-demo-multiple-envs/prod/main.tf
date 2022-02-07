@@ -2,17 +2,18 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
+      version = "3.74.0"
     }
   }
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = var.region
 }
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.22.0"
+  version = "2.21.0"
 
   name = var.vpc_name
   cidr = var.vpc_cidr
