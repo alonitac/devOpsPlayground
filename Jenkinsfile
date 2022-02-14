@@ -9,6 +9,7 @@ pipeline {
                 cd simple_webserver
                 docker build -t simple-build .
                 echo "success docker"
+
                 '''
             }
         }
