@@ -7,8 +7,8 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 cd simple_webserver
-                script {
                 dockerImage = docker.build python:3.8.12-slim-buster
+
 
             }
         }
