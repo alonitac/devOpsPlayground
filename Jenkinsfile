@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    environment {
-            imagename = "python:3.8.12-slim-buster"
-            registryCredential = 'simpleImage'
-            dockerImage = ''
 
     stages {
         stage('Build') {
@@ -11,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 cd simple_webserver
-                dockerImage = docker.build python:3.8.12-slim-buster
+                app = docker.build("python:3.8.12-slim-buster")
 
 
             }
