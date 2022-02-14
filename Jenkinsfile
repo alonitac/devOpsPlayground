@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+            imagename = "python:3.8.12-slim-buster"
+            registryCredential = 'simpleImage'
+            dockerImage = ''
 
     stages {
         stage('Build') {
