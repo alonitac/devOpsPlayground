@@ -10,6 +10,7 @@ pipeline {
                 docker build -t simple-build .
                 echo "success docker"
 
+
                 '''
             }
         }
