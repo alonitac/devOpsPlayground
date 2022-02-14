@@ -1,6 +1,6 @@
 from telegram.ext import Updater, MessageHandler, Filters
 from youtubeBot.utils import download_youtube_file
-
+from datetime import datetime
 
 class Bot:
     def __init__(self, token):
@@ -32,8 +32,6 @@ class Bot:
 
 
 class YoutubeBot(Bot):
-    pass  # TODO your code here!
 
-
-if __name__ == '__main__':
-    Bot('YOUR TOKEN HERE')
+    downloaded_videos = download_youtube_file(self.context.bot.send_video(url = input())
+     def
