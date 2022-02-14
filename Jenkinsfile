@@ -1,25 +1,38 @@
 pipeline {
-    agent any
-
-    stages {
+  agent any
+  stages {
+    stage('Build') {
+      parallel {
         stage('Build') {
-            steps {
-                echo 'Building..'
-                sh '''
+          steps {
+            echo 'Building..'
+            sh '''
                 cd simple_webserver
                 echo "docker build command should be here"
                 '''
-            }
+          }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+
+        stage('') {
+          steps {
+            echo 'another stage '
+          }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+
+      }
     }
+
+    stage('Test') {
+      steps {
+        echo 'Testing..'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
+      }
+    }
+
+  }
 }
