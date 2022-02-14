@@ -39,4 +39,4 @@ class YoutubeBot(Bot):
 
 
 if __name__ == '__main__':
-    Bot('YOUR TOKEN HERE')
+    Bot('YOUR TOKEN now')
