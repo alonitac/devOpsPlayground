@@ -11,5 +11,5 @@ def hello_world():
 def hello(name):
     return f"Hello, {name}!"
 
-app.run(host='0.0.0.0', port=3000)
+# app.run(host='0.0.0.0', port=3000)
 
