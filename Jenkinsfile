@@ -8,7 +8,8 @@ pipeline {
                 sh '''
                 cd simple_webserver
                 docker build -t my-app .
-                docker run -dp 3000:3002 my-app
+                docker rm -f my-app
+                docker run -p 3000:3002 my-app
 
                 '''
             }
