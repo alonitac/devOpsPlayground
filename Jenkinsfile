@@ -8,7 +8,7 @@ pipeline {
                 sh '''
                 cd simple_webserver
                 docker build -t my-app .
-                docker images
+                docker run -dp my-app
 
                 '''
             }
