@@ -8,6 +8,7 @@ pipeline {
                 sh '''
                 cd simple_webserver
                 docker build -t my-app .
+
                 '''
             }
         }
