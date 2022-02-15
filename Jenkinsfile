@@ -5,6 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh '''
+                cd simple_webserver
+                docker build -t my-app .
+                '''
             }
         }
         stage('Test') {
