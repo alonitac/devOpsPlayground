@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 cd simple_webserver
-                sudo docker build -t my-app .
+                docker build -t my-app .
 
                 '''
             }
