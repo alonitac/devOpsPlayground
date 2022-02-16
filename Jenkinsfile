@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'running..'
                 sh '''
-                docker run --rm my-app
+                docker run --rm -p 3000:3000 my-app
                 '''
             }
         }
