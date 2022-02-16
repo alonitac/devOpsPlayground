@@ -8,7 +8,6 @@ pipeline {
                 sh '''
                 cd simple_webserver
                 docker build -t my-app .
-
                 '''
             }
         }
@@ -16,8 +15,7 @@ pipeline {
             steps {
                 echo 'running..'
                 sh '''
-                docker run --rm -p 3000:3000 my-app
-
+                docker run --rm  my-app
                 '''
             }
         }
