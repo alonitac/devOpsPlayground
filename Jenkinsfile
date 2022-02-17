@@ -1,3 +1,5 @@
+// Jenkins env var reference https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#working-with-your-jenkinsfile
+
 pipeline {
     agent any
 
@@ -13,6 +15,7 @@ pipeline {
             }
         }
         stage('Test') {
+            when { changeRequest() }
             steps {
                 echo 'Testing..'
             }
