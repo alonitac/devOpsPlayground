@@ -34,8 +34,10 @@ pipeline {
 
 
         stage('Test') {
+            when{changeRequest()}
             steps {
                 echo 'Testing..'
+
             }
         }
         stage('Deploy') {
