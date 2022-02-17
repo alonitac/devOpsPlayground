@@ -17,8 +17,8 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 cd simple_webserver
-                docker build -t web_server_adham .
-                docker tag web_server_adham:${env.BUILD_NUMBER} 352708296901.dkr.ecr.us-west-2.amazonaws.com/web_server_adham:${env.BUILD_NUMBER}
+                docker build -t web_server_adham:${BUILD_NUMBER} .
+                docker tag web_server_adham:${BUILD_NUMBER} 352708296901.dkr.ecr.us-west-2.amazonaws.com/web_server_adham:${BUILD_NUMBER}
 
                 '''
             }
@@ -26,7 +26,7 @@ pipeline {
         stage('push'){
            steps{
               sh '''
-              docker push 352708296901.dkr.ecr.us-west-2.amazonaws.com/web_server_adham:${env.BUILD_NUMBER}
+              docker push 352708296901.dkr.ecr.us-west-2.amazonaws.com/web_server_adham:${BUILD_NUMBER}
               '''
            }
 
