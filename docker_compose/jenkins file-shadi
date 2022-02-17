@@ -5,7 +5,7 @@ pipeline {
         stage('Build Simple WebServer') {
             when { anyOf { branch "master"; branch "dev" }}
             steps {
-                echo 'Building..'
+                echo 'Building....'
                 sh '''
                 cd simple_webserver
                 # docker build
