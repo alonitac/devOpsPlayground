@@ -3,6 +3,9 @@
 pipeline {
     agent any
 
+    environment {
+
+    }
     stages {
         stage('Build Simple WebServer') {
             when { anyOf { branch "master"; branch "dev" }}
@@ -15,6 +18,7 @@ pipeline {
             }
         }
         stage('Test') {
+            when { changeRequest() }
             steps {
                 echo 'Testing..'
             }
