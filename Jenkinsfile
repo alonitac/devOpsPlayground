@@ -14,7 +14,7 @@ pipeline {
                 cd simple_webserver
                 echo ${BRANCH_NAME}
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${DockerHost}
-                docker build -t eliasrepo
+                docker build -t eliasrepo.
                 docker tag ${Image} ${DockerHost}/${Image}
                 docker push ${DockerHost}/${Image}
 
