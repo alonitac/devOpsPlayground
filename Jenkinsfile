@@ -1,40 +1,47 @@
+// Jenkins env var reference https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#working-with-your-jenkinsfile
+
 pipeline {
     agent any
-    environment {
-    DockerHost = '352708296901.dkr.ecr.us-east-1.amazonaws.com'
-    Image = 'eliasrepo:${BRANCH_NAME}_{BUILD_NUMBER}'
-    }
 
     stages {
-        stage('Build Simple Webserver') {
-        when { anyOf {branch "master" ; branch "dev"}}
+        stage('Build Simple WebServer') {
+            when { anyOf { branch "master"; branch "dev" }}
             steps {
-                echo 'Building.'
+                echo 'Building..'
                 sh '''
-                 IMAGE="eliasrepo:${BRANCH_NAME}_${BUILD_NUMBER}"
-                     cd simple_webserver
-                  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${DockerHost}
-                  docker build  -t ${IMAGE} .
-                  docker tag ${IMAGE} ${DockerHost}/${IMAGE}
-                  docker push ${DockerHost}/${IMAGE}
-                    '''
+                cd simple_webserver
+                # docker build
+                '''
             }
         }
-
         stage('Test') {
+            when { changeRequest() }
             steps {
                 echo 'Testing..'
+                sh 'pip3 install -r simple_webserver/requirements.txt'
+                sh 'python3 -m unittest simple_webserver/tests/test_flask_web.py'
             }
         }
-
-         stage('Provisioning - Dev') {
+        stage('Deploy - dev') {
+            when { branch "dev" }
+            steps {
+                echo 'Deploying....'
+            }
+        }
+        stage('Deploy - prod') {
+            when { branch "master" }
+            steps {
+                echo 'Deploying....'
+            }
+        }
+        stage('Provisioning - Dev') {
             when { allOf { branch "dev"; changeset "infra/**/*.tf" } }
             steps {
                 echo 'Provisioning....'
                 sh 'cd infra/dev'
-                sh 'terraform init'
-                sh 'terraform plan'
-                sh 'terraform apply'
+                // sh 'terraform init'
+                // copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
+                // archiveArtifacts artifacts: 'infra/dev/terraform.tfstate', onlyIfSuccessful: true
             }
         }
     }
