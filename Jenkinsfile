@@ -9,14 +9,14 @@ pipeline {
         stage('Build Simple Webserver') {
         when { anyOf {branch "master" ; branch "dev"}}
             steps {
-                echo 'Building..'
+                echo 'Building.'
                 sh '''
                  IMAGE="eliasrepo:${BRANCH_NAME}_${BUILD_NUMBER}"
                      cd simple_webserver
-                  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${DockerUrl}
+                  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${DockerHost}
                   docker build  -t ${IMAGE} .
-                  docker tag ${IMAGE} ${DockerUrl}/${IMAGE}
-                  docker push ${DockerUrl}/${IMAGE}
+                  docker tag ${IMAGE} ${DockerHost}/${IMAGE}
+                  docker push ${DockerHost}/${IMAGE}
                     '''
             }
         }
