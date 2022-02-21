@@ -39,10 +39,8 @@ pipeline {
             steps {
                 echo 'Provisioning....'
                 sh 'cd infra/dev'
-                // sh 'terraform init'
-                // copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
-                // archiveArtifacts artifacts: 'infra/dev/terraform.tfstate', onlyIfSuccessful: true
-            }
+                sh 'terraform init'
+            }   sh 'terraform plan'
+                sh 'terraform apply'
         }
     }
-}
