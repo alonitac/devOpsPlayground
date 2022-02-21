@@ -2,7 +2,7 @@ import unittest
 from simple_webserver.app import hello
 
 
-class TestStringMethods(unittest.TestCase):
+class TestFlaskWebServer(unittest.TestCase):
 
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
