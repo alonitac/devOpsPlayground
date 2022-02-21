@@ -26,7 +26,8 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Provisioning - Dev') {
+            when { allOf { branch "dev"; changeset "infra/**/*.tf" } }
             steps {
             echo 'building ec2'
             sh 'terraform init'
