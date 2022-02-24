@@ -1,7 +1,7 @@
 // Jenkins env var reference https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#working-with-your-jenkinsfile
 
 pipeline {
-    agent { label 'ec2-fleet'}
+    agent { label 'ec2-fleet' }
 
     stages {
         stage('Build Simple WebServer') {
@@ -20,22 +20,6 @@ pipeline {
                 echo 'Testing..'
                 sh 'pip3 install -r simple_webserver/requirements.txt'
                 sh 'python3 -m unittest simple_webserver/tests/test_flask_web.py'
-            }
-        }
-        stage('Provisioning - Dev') {
-            when { allOf { branch "dev"; changeset "infra/**/*.tf" } }
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('Provisioning - Dev') {
-            when { allOf { branch "dev"; changeset "infra/**/*.tf" } }
-            steps {
-//                 copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
-                echo 'Provisioning....'
-                sh 'cd infra/dev'
-//                 sh 'terraform init && terraform plan && terraform apply -????????'
-//                 archiveArtifacts artifacts: 'infra/dev/terraform.tfstate', onlyIfSuccessful: true
             }
         }
     }
