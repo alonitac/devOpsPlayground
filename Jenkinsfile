@@ -1,7 +1,7 @@
 // Jenkins env var reference https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#working-with-your-jenkinsfile
 
 pipeline {
-    agent any
+    agent { label 'ec2-fleet'}
 
     stages {
         stage('Build Simple WebServer') {
@@ -31,11 +31,11 @@ pipeline {
         stage('Provisioning - Dev') {
             when { allOf { branch "dev"; changeset "infra/**/*.tf" } }
             steps {
+//                 copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
                 echo 'Provisioning....'
                 sh 'cd infra/dev'
-                // sh 'terraform init'
-                // copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
-                // archiveArtifacts artifacts: 'infra/dev/terraform.tfstate', onlyIfSuccessful: true
+//                 sh 'terraform init && terraform plan && terraform apply -????????'
+//                 archiveArtifacts artifacts: 'infra/dev/terraform.tfstate', onlyIfSuccessful: true
             }
         }
     }
