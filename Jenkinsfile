@@ -1,7 +1,7 @@
 // Jenkins env var reference https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#working-with-your-jenkinsfile
 
 pipeline {
-    agent any
+    agent { label 'ec2-fleet' }
 
     stages {
         stage('Build Simple WebServer') {
@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
+                ec2-metadata
                 cd simple_webserver
                 # docker build
                 '''
@@ -18,7 +19,7 @@ pipeline {
             when { changeRequest() }
             steps {
                 echo 'Testing..'
-                sh 'python3 -m unittest simple_webserver/tests/test_flask_web.py'
+                sh 'python4 -m unittest simple_webserver/tests/test_flask_web.py'
             }
         }
         stage('Deploy - dev') {
