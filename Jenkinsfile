@@ -22,5 +22,20 @@ pipeline {
                 sh 'python3 -m unittest simple_webserver/tests/test_flask_web.py'
             }
         }
+
+         stage('Provision - dev') {
+            when { changeset "infra/dev/**" }
+            input {
+                message "Do you want to proceed for infrastructure provisioning?"
+            }
+            steps {
+                // copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
+                sh '''
+                cd infra/dev
+                terraform init && terraform plan && terraform apply -auto-approve
+                '''
+                archiveArtifacts artifacts: 'infra/dev/terraform.tfstate', onlyIfSuccessful: true
+            }
+        }
     }
 }
