@@ -29,7 +29,7 @@ pipeline {
                 message "Do you want to proceed for infrastructure provisioning?"
             }
             steps {
-                // copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
+                copyArtifacts filter: 'infra/dev/terraform.tfstate', projectName: '${JOB_NAME}'
                 sh '''
                 cd infra/dev
                 terraform init && terraform plan && terraform apply -auto-approve
