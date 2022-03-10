@@ -1,0 +1,14 @@
+elasticsearch:
+  hosts: ["https://test-es-ed2eab.es.eu-west-1.aws.found.io"]
+  port: 9243
+  security:
+    auth:
+      enabled: true
+      kibanaUsername: "elastic"
+      kibanaPassword: "6tpQdXaAHdZ1tDuOFRHlnsVV"
+#    tls:
+#      enabled: true
+
+persistence:
+  enabled: false
+
