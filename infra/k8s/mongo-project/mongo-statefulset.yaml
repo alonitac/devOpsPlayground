@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongodb
+spec:
+  serviceName: mongo-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo:5.0
+          command: ['/usr/bin/mongod', '--bind_ip_all', '--replSet=rs0']
+          #       lifecycle:
+          #         postStart:
+          #          exec:
+          #            command: ["/bin/sh", "-c", "mongo --eval 'rs.initiate();'"]
+          volumeMounts:
+            - name: mongodb-storage
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongodb-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: manual
+        resources:
+          requests:
+            storage: 1Gi
+        selector:
+          matchLabels:
+            type: local
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mongo/data"

@@ -1,0 +1,5 @@
+resources:
+- mongo.yaml
+- mongo-config.yaml
+- mongo-secret.yaml
+- webapp.yaml

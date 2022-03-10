@@ -1,0 +1,49 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::352708296901:role/apr21-k8s-ng-cluster
+      username: system:node:{{EC2PrivateDNSName}}
+    - rolearn: arn:aws:iam::352708296901:role/apr21-k8s-cluster
+      username: apr21-k8s-cluster
+      groups:
+      - system:masters
+  mapUsers: |
+    - userarn: arn:aws:iam::352708296901:user/aws26
+      username: aws26
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws27
+        username: aws27
+        groups:
+          - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws28
+        username: aws28
+        groups:
+          - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws29
+        username: aws29
+        groups:
+          - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws30
+        username: aws30
+        groups:
+          - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws31
+        username: aws31
+        groups:
+          - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws32
+        username: aws32
+        groups:
+          - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws33
+        username: aws33
+        groups:
+          - system:masters
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
