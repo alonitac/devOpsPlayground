@@ -6,6 +6,10 @@ pipeline {
         stage('Build') {
             steps{
                 echo 'Building..'
+                sh '''
+                cd simple_webserver
+                echo "docker bla bla bla.."
+                '''
             }
         }
         stage('Test') {
