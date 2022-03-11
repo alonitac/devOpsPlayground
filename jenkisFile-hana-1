@@ -9,7 +9,7 @@ pipeline {
 
                 sh'''
                 cd simple_webserver
-                echo "docker blablabla"
+                echo "docker blablabl"
                 '''
             }
         }
