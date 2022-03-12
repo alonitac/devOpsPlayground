@@ -10,6 +10,7 @@ pipeline {
                 sh'''
                 cd simple_webserver
                 echo "docker blablabl"
+                docker build -t DockerFile .
                 '''
             }
         }
