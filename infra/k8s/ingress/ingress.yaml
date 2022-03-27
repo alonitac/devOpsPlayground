@@ -10,8 +10,8 @@ kind: Ingress
 metadata:
   name: example-ingress
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
@@ -19,13 +19,13 @@ spec:
         - anthonycornell.com
       secretName: tls-secret
   rules:
-    - host: # < full host here >
+    - host: a459f6de88f8c46e9964911b5ea6face-57bb0d12e276fde8.elb.eu-west-1.amazonaws.com
       http:
         paths:
-          - path: /apple
+          - path: /simple-webserver
             backend:
-              serviceName: apple-service
-              servicePort: 5678
+              serviceName: simple-web-server-service
+              servicePort: 8081
           - path: /banana
             backend:
               serviceName: banana-service
