@@ -41,6 +41,7 @@ kind: Service
 metadata:
   name: mongo-express-service
 spec:
+  type: NodePort
   selector:
     app: mongo-express
   ports:
