@@ -1,0 +1,113 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::352708296901:role/apr21-k8s-ng-cluster
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+    - rolearn: arn:aws:iam::352708296901:role/JenkinsAdmin
+      username: jenkins
+      groups:
+        - system:masters
+  mapUsers: |
+    - userarn: arn:aws:iam::352708296901:user/aws1
+      username: aws1
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws2
+      username: aws2
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws3
+      username: aws3
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws4
+      username: aws4
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws5
+      username: aws5
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws6
+      username: aws6
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws7
+      username: aws7
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws8
+      username: aws8
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws9
+      username: aws9
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws10
+      username: aws10
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws11
+      username: aws11
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws12
+      username: aws12
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws13
+      username: aws13
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws14
+      username: aws14
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws15
+      username: aws15
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws16
+      username: aws16
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws17
+      username: aws17
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws18
+      username: aws18
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws19
+      username: aws19
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws20
+      username: aws20
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws21
+      username: aws21
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws22
+      username: aws22
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws23
+      username: aws23
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::352708296901:user/aws24
+      username: aws24
+      groups:
+        - system:masters
