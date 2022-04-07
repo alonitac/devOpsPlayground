@@ -1,0 +1,8 @@
+replicas: 2
+resources:
+  requests:
+    cpu: "100m"
+    memory: "0.5Gi"
+  limits:
+    cpu: "1000m"
+    memory: "2Gi"
