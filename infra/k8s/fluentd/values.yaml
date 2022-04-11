@@ -12,4 +12,4 @@ fileConfigs:
 
 # for more information https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs
 plugins:
-  - fluent-plugin-cloudwatch-logs
+ - fluent-plugin-cloudwatch-logs
